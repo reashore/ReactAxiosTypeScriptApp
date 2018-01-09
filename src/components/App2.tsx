@@ -1,17 +1,11 @@
 
 import * as React from 'react';
 import { Table } from 'react-bootstrap';
-import { DataComponent, AppProps } from './DataComponent';
+import { DataComponent } from './DataComponent';
+import VendorData from './VendorData';
+import AppProps from './AppProps';
 
-interface VendorData {
-  vendorId: number;
-  name: string;
-  ocgNumber: string;
-  managingQsArea: string;
-  primaryAddress: string;
-}
-
-export class App extends DataComponent<VendorData> {
+export class App2 extends DataComponent<VendorData> {
   constructor(props: AppProps) {
     super(props);
 
@@ -23,7 +17,7 @@ export class App extends DataComponent<VendorData> {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>React Axios TypeScript App</h1>
         {this.state.data ? this.formatTable(this.state.data) : 'Loading...'}
       </div>

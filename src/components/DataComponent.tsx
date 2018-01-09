@@ -1,14 +1,8 @@
 
 import * as React from 'react';
 import axios from 'axios';
-
-export interface AppProps {
-    url: string;
-}
-
-interface AppState<T> {
-    data: ReadonlyArray<T> | null;
-}
+import AppProps from './AppProps';
+import AppState from './AppState';
 
 export class DataComponent<T> extends React.Component<AppProps, AppState<T>> {
     public url: string;
