@@ -22,7 +22,7 @@ export class DataComponent<T> extends React.Component<AppProps, AppState<T>> {
         };
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         if (!this.state.data) {
             this.getData(this.url)
                 .then((data: ReadonlyArray<T>) => this.setState({ data: data }))
@@ -31,7 +31,7 @@ export class DataComponent<T> extends React.Component<AppProps, AppState<T>> {
         }
     }
 
-    async getData(url: string) {
+    async getData(url: string): Promise<ReadonlyArray<T>> {
         const result = await axios(url);
         return result.data as ReadonlyArray<T>;
     }
