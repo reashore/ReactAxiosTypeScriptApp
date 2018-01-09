@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-bootstrap": "^0.31.9",
+    "axios": "^0.17.1",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0",
     "react-scripts-ts": "2.8.0"
   },
