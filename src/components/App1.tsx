@@ -9,7 +9,7 @@ import AppState from './AppState';
 export default class App1 extends React.Component<AppProps, AppState<VendorData>> {
     private url: string;
 
-    constructor(props: AppProps) {
+    public constructor(props: AppProps) {
         super(props);
 
         this.url = this.props.url;
@@ -18,21 +18,7 @@ export default class App1 extends React.Component<AppProps, AppState<VendorData>
         };
     }
 
-    componentDidMount(): void {
-        if (!this.state.data) {
-            this.getData(this.url)
-                .then((data: ReadonlyArray<VendorData>) => this.setState({ data: data }))
-                // tslint:disable-next-line:no-console
-                .catch(error => console.log(error));
-        }
-    }
-
-    async getData(url: string): Promise<ReadonlyArray<VendorData>> {
-        const result = await axios(url);
-        return result.data as ReadonlyArray<VendorData>;
-    }
-
-    render() {
+    public render() {
         return (
             <div className="container">
                 <h1>React Axios TypeScript App</h1>
@@ -41,7 +27,21 @@ export default class App1 extends React.Component<AppProps, AppState<VendorData>
         );
     }
 
-    formatTable(dataArray: ReadonlyArray<VendorData>) {
+    public componentDidMount(): void {
+        if (!this.state.data) {
+            this.getData(this.url)
+                .then((data: ReadonlyArray<VendorData>) => this.setState({ data: data }))
+                // tslint:disable-next-line:no-console
+                .catch(error => console.log(error));
+        }
+    }
+
+    private async getData(url: string): Promise<ReadonlyArray<VendorData>> {
+        const result = await axios(url);
+        return result.data as ReadonlyArray<VendorData>;
+    }
+
+    private formatTable(dataArray: ReadonlyArray<VendorData>) {
         return (
             <Table striped={true} bordered={true} condensed={true} hover={true}>
                 <thead>

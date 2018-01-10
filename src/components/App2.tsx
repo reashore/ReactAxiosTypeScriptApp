@@ -6,7 +6,7 @@ import VendorData from './VendorData';
 import AppProps from './AppProps';
 
 export default class App2 extends DataComponent<VendorData> {
-  constructor(props: AppProps) {
+  public constructor(props: AppProps) {
     super(props);
 
     this.url = this.props.url;
@@ -15,7 +15,7 @@ export default class App2 extends DataComponent<VendorData> {
     };
   }
 
-  render() {
+  public render() {
     return (
       <div className="container">
         <h1>React Axios TypeScript App</h1>
@@ -24,7 +24,7 @@ export default class App2 extends DataComponent<VendorData> {
     );
   }
 
-  formatTable(dataArray: ReadonlyArray<VendorData>) {
+  private formatTable(dataArray: ReadonlyArray<VendorData>) {
     return (
       <Table striped={true} bordered={true} condensed={true} hover={true}>
         <thead>

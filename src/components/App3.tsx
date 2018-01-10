@@ -10,7 +10,7 @@ export default class App3 extends React.Component<AppProps, AppState<VendorData>
     private url: string;
     private dataAccess: DataAccess<VendorData>;
 
-    constructor(props: AppProps) {
+    public constructor(props: AppProps) {
         super(props);
 
         this.url = this.props.url;
@@ -20,7 +20,7 @@ export default class App3 extends React.Component<AppProps, AppState<VendorData>
         this.dataAccess = new DataAccess<VendorData>();
     }
 
-    componentDidMount(): void {
+    public componentDidMount(): void {
         if (!this.state.data) {
             this.dataAccess.getData(this.url)
                 .then((data: ReadonlyArray<VendorData>) => this.setState({ data: data }))
@@ -29,7 +29,7 @@ export default class App3 extends React.Component<AppProps, AppState<VendorData>
         }
     }
 
-    render() {
+    public render() {
         return (
             <div className="container">
                 <h1>React Axios TypeScript App</h1>
@@ -38,7 +38,7 @@ export default class App3 extends React.Component<AppProps, AppState<VendorData>
         );
     }
 
-    formatTable(dataArray: ReadonlyArray<VendorData>) {
+    private formatTable(dataArray: ReadonlyArray<VendorData>) {
         return (
             <Table striped={true} bordered={true} condensed={true} hover={true}>
                 <thead>
