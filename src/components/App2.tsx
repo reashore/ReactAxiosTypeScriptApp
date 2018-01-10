@@ -5,7 +5,7 @@ import { DataComponent } from './DataComponent';
 import VendorData from './VendorData';
 import AppProps from './AppProps';
 
-export class App2 extends DataComponent<VendorData> {
+export default class App2 extends DataComponent<VendorData> {
   constructor(props: AppProps) {
     super(props);
 
